@@ -223,8 +223,8 @@ export default class AboutBuildModal extends React.PureComponent<Props, State> {
                     >
                         <FormattedMessage
                             id='about.title'
-                            values={{appTitle: config.SiteName || 'Mattermost'}}
-                            defaultMessage='About {appTitle}'
+                            values={{appTitle: ''}}
+                            defaultMessage='About'
                         />
                     </Modal.Title>
                 </Modal.Header>
@@ -234,37 +234,13 @@ export default class AboutBuildModal extends React.PureComponent<Props, State> {
                             <MattermostLogo/>
                         </div>
                         <div>
-                            <h3 className='about-modal__title'>{'Mattermost'} {title}</h3>
+                            <h3 className='about-modal__title'>{'Binalyze HUB'}</h3>
                             <p className='about-modal__subtitle pb-2'>{subTitle}</p>
-                            <div className='form-group less'>
-                                <div>
-                                    <FormattedMessage
-                                        id='about.version'
-                                        defaultMessage='Mattermost Version:'
-                                    />
-                                    <span id='versionString'>{'\u00a0' + mmversion}</span>
-                                </div>
-                                <div>
-                                    <FormattedMessage
-                                        id='about.dbversion'
-                                        defaultMessage='Database Schema Version:'
-                                    />
-                                    <span id='dbversionString'>{'\u00a0' + config.Version}</span>
-                                </div>
-                                {buildnumber}
-                                <div>
-                                    <FormattedMessage
-                                        id='about.database'
-                                        defaultMessage='Database:'
-                                    />
-                                    {'\u00a0' + config.SQLDriverName}
-                                </div>
-                            </div>
                             {licensee}
                         </div>
                     </div>
                     <div className='about-modal__footer'>
-                        {learnMore}
+
                         <div className='form-group'>
                             <div className='about-modal__copyright'>
                                 <FormattedMessage
@@ -288,34 +264,6 @@ export default class AboutBuildModal extends React.PureComponent<Props, State> {
                                 id='about.notice'
                                 defaultMessage='Mattermost is made possible by the open source software used in our [server](!https://about.mattermost.com/platform-notice-txt/), [desktop](!https://about.mattermost.com/desktop-notice-txt/) and [mobile](!https://about.mattermost.com/mobile-notice-txt/) apps.'
                             />
-                        </p>
-                    </div>
-                    <div className='about-modal__hash'>
-                        <p>
-                            <FormattedMessage
-                                id='about.hash'
-                                defaultMessage='Build Hash:'
-                            />
-                            <Nbsp/>{config.BuildHash}
-                            <br/>
-                            <FormattedMessage
-                                id='about.hashee'
-                                defaultMessage='EE Build Hash:'
-                            />
-                            <Nbsp/>{config.BuildHashEnterprise}
-                            <br/>
-                            <FormattedMessage
-                                id='about.hashwebapp'
-                                defaultMessage='Webapp Build Hash:'
-                            />
-                            <Nbsp/>{/* global COMMIT_HASH */ this.props.webappBuildHash || (typeof COMMIT_HASH === 'undefined' ? '' : COMMIT_HASH)}
-                        </p>
-                        <p>
-                            <FormattedMessage
-                                id='about.date'
-                                defaultMessage='Build Date:'
-                            />
-                            <Nbsp/>{config.BuildDate}
                         </p>
                     </div>
                 </Modal.Body>
